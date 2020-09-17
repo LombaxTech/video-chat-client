@@ -15,8 +15,10 @@ const Room = (props) => {
             .then((stream) => {
                 userVideo.current.srcObject = stream;
                 userStream.current = stream;
+                
 
-                socketRef.current = io.connect("http://localhost:3030");
+                socketRef.current = io.connect("https://video-chat-backend-test.herokuapp.com")
+                // socketRef.current = io.connect("http://localhost:3030");
                 // socketRef.current = io.connect("http://localhost:3030");
                 socketRef.current.emit("join room", props.match.params.roomID);
 
